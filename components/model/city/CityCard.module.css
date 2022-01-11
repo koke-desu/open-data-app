@@ -1,0 +1,18 @@
+.card {
+  width: 100%;
+  padding: 1rem;
+  aspect-ratio: calc(16 / 9);
+  border: 2px solid gray;
+  position: relative;
+}
+
+.prefecture {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: bold;
+}
