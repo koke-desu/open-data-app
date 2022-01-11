@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { CityType } from "../../../database/dataType";
 import style from "./CityCard.module.css";
@@ -8,10 +9,12 @@ type Props = {
 
 const CityCard: React.VFC<Props> = ({ city }) => {
   return (
-    <div className={style.card}>
-      <p className={style.prefecture}>{city.prefecture}</p>
-      <p className={style.name}>{city.name}</p>
-    </div>
+    <Link href="/detail/[cityId]" as={`/detail/${city.id}`}>
+      <a className={style.card}>
+        <p className={style.prefecture}>{city.prefecture}</p>
+        <p className={style.name}>{city.name}</p>
+      </a>
+    </Link>
   );
 };
 export default CityCard;
