@@ -1,12 +1,11 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
 import PageLayout from "../components/layout/pageLayout/PageLayout";
+import TopPage from "../components/layout/TopPage/TopPage";
 
 const Home: NextPage = () => {
   return (
     <PageLayout>
-      <p>トップページ</p>
+      <TopPage />
     </PageLayout>
   );
 };
