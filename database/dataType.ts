@@ -4,7 +4,7 @@
 export type CityType = {
   id: string;
   prefecture: string;
-  cityName: string;
+  name: string;
   link: string;
   crimeRate: number;
   temperature: number;

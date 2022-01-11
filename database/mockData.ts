@@ -4,7 +4,7 @@ export const citiesMockData: CityType[] = [
   {
     id: "1",
     prefecture: "富山県",
-    cityName: "富山市",
+    name: "富山市",
     link: "https://www.city.toyama.toyama.jp/",
     population: 411222,
     crimeRate: 0.964,
@@ -13,7 +13,7 @@ export const citiesMockData: CityType[] = [
   {
     id: "2",
     prefecture: "富山県",
-    cityName: "高岡市",
+    name: "高岡市",
     link: "https://www.city.takaoka.toyama.jp/",
     population: 167216,
     crimeRate: 0.955,
@@ -22,7 +22,7 @@ export const citiesMockData: CityType[] = [
   {
     id: "3",
     prefecture: "石川県",
-    cityName: "金沢市",
+    name: "金沢市",
     link: "https://www4.city.kanazawa.lg.jp/",
     population: 461352,
     crimeRate: 0.919,
