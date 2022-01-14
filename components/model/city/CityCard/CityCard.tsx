@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React from "react";
-import { CityType } from "../../../database/dataType";
+import { CityType } from "../../../../database/dataType";
 import style from "./CityCard.module.css";
 
 type Props = {
