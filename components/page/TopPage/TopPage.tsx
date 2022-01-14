@@ -1,6 +1,6 @@
 import React from "react";
 import { useCities } from "../../../database/useCities";
-import CityCard from "../../model/city/CityCard";
+import CityCard from "../../model/city/CityCard/CityCard";
 import style from "./TopPage.module.css";
 type Props = {};
 

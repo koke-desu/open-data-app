@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
-import PageLayout from "../components/layout/pageLayout/PageLayout";
-import TopPage from "../components/layout/TopPage/TopPage";
+import PageLayout from "../components/page/pageLayout/PageLayout";
+import TopPage from "../components/page/TopPage/TopPage";
 
 const Home: NextPage = () => {
   return (
