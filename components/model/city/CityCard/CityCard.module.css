@@ -1,18 +1,23 @@
 .card {
+  display: inline-block;
   width: 100%;
+  max-width: 24rem;
   padding: 1rem;
-  aspect-ratio: calc(16 / 9);
+  aspect-ratio: 16 / 9;
   border: 2px solid gray;
   position: relative;
+  text-decoration: none;
 }
 
 .prefecture {
   position: absolute;
+  color: gray;
   top: 8px;
   right: 8px;
 }
 
 .name {
+  color: dimgray;
   font-size: 2rem;
   font-weight: bold;
 }
