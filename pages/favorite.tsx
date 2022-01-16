@@ -1,11 +1,11 @@
 import type { NextPage } from "next";
+import FavoritePage from "../components/page/FavoritePage/FavoritePage";
 import PageLayout from "../components/page/pageLayout/PageLayout";
-import TopPage from "../components/page/TopPage/TopPage";
 
 const Home: NextPage = () => {
   return (
     <PageLayout>
-      <TopPage />
+      <FavoritePage />
     </PageLayout>
   );
 };
