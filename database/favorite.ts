@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext } from "react";
 import { CityType } from "./dataType";
+import { useCities } from "./useCities";
 
 // favorite（お気に入り）の処理をまとめたファイル。
 // 全体で状態の同期をとるため、contextで共有する。
@@ -33,10 +34,23 @@ export const getInitialFavorite = () => {
 // favoriteContextの使用をhooksに切り出し。
 export const useFavorite = () => {
   const { favorite, setFavorite } = useContext(favoriteContext);
+  const cities = useCities().data;
+
   return {
     get: () => favorite,
-    set: (value: CityType[]) => {
-      localStorage.setItem("favorite", JSON.stringify(value)), setFavorite(value);
+    add: (id: string) => {
+      let newValue = [...favorite];
+      if (!favorite.some((city) => city.id === id) && cities) {
+        const city = cities.find((city) => city.id === id);
+        city && newValue.push(city);
+      }
+      localStorage.setItem("favorite", JSON.stringify(newValue));
+      setFavorite(newValue);
+    },
+    delete: (id: string) => {
+      const newValue = favorite.filter((city) => city.id !== id);
+      localStorage.setItem("favorite", JSON.stringify(newValue));
+      setFavorite(newValue);
     },
   };
 };
