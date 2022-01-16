@@ -18,6 +18,8 @@ export const favoriteContext = createContext<FavoriteContext>({
 
 // contextの初期化用の値を返す関数。_app.tsxで使う。
 export const getInitialFavorite = () => {
+  if (typeof window === "undefined") return [];
+
   let item = localStorage.getItem("favorite");
 
   if (!item) {
