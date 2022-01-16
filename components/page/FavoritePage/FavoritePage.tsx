@@ -11,8 +11,8 @@ const FavoritePage: React.VFC<Props> = ({}) => {
   console.log(favorite.get());
 
   return (
-    <div>
-      <p>お気に入り一覧</p>
+    <div className={style.container}>
+      <h2 className={style.title}>お気に入り一覧</h2>
       {favorite.get().map((city) => (
         <CityCard city={city} key={`favorite-${city.id}`} />
       ))}
