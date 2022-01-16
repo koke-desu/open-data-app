@@ -1,0 +1,12 @@
+.container {
+  padding: 2rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.title {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
