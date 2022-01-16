@@ -16,7 +16,7 @@ const DetailPage: React.VFC<Props> = ({}) => {
   const city = data?.find((val) => val.id === cityId);
 
   const favorite = useFavorite();
-  const isFavorite = favorite.get().some((id) => id.id === cityId);
+  const isFavorite = favorite.exist(cityId);
 
   if (error) return <div>error</div>;
   if (!data) return <div>Loading</div>;

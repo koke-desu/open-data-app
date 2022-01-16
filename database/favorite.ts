@@ -52,5 +52,8 @@ export const useFavorite = () => {
       localStorage.setItem("favorite", JSON.stringify(newValue));
       setFavorite(newValue);
     },
+    exist: (id: string) => {
+      return favorite.some((city) => city.id === id);
+    },
   };
 };
