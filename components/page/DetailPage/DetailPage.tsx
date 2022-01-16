@@ -5,6 +5,7 @@ import style from "./DetailPage.module.css";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import { useFavorite } from "../../../database/favorite";
+import TopPageLink from "../../ui/TopPageLink/TopPageLink";
 
 type Props = {};
 
@@ -24,22 +25,25 @@ const DetailPage: React.VFC<Props> = ({}) => {
 
   return (
     <div className={style.container}>
-      <p className={style.name}>
-        {city.prefecture} ー {city.name}
-      </p>
-      <div
-        onClick={() => {
-          if (isFavorite) favorite.delete(cityId);
-          else favorite.add(cityId);
-        }}
-        className={style.favoriteContainer}
-      >
-        {isFavorite ? (
-          <FavoriteIcon style={{ color: "#f88" }} sx={{ fontSize: 48 }} />
-        ) : (
-          <FavoriteBorder style={{ color: "#999" }} sx={{ fontSize: 48 }} />
-        )}
+      <div className={style.headRow}>
+        <p className={style.name}>
+          {city.prefecture} ー {city.name}
+        </p>
+        <div
+          onClick={() => {
+            if (isFavorite) favorite.delete(cityId);
+            else favorite.add(cityId);
+          }}
+          className={style.favoriteContainer}
+        >
+          {isFavorite ? (
+            <FavoriteIcon style={{ color: "#f88" }} sx={{ fontSize: 48 }} />
+          ) : (
+            <FavoriteBorder style={{ color: "#999" }} sx={{ fontSize: 48 }} />
+          )}
+        </div>
       </div>
+      <TopPageLink />
     </div>
   );
 };

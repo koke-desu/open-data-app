@@ -10,3 +10,8 @@
   grid-column-start: 1;
   grid-column-end: 4;
 }
+
+.linkContainer {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
