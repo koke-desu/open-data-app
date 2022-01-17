@@ -10,3 +10,14 @@ export type CityType = {
   temperature: number;
   population: number;
 };
+
+// CityTypeのkeyの一覧。ループ回すのに使う。
+export const cityTypeKey: (keyof CityType)[] = [
+  "id",
+  "prefecture",
+  "name",
+  "link",
+  "crimeRate",
+  "temperature",
+  "population",
+];
