@@ -10,5 +10,10 @@
 .header {
   width: 100%;
   height: 4rem;
-  background-color: dimgray;
+  padding: 0 1rem;
+  background-color: lightcyan;
+  border-bottom: gray 1px solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

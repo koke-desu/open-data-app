@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useCities } from "../../../database/useCities";
 import CityCard from "../../model/city/CityCard/CityCard";
 import { usePageQuery, useQueryCities } from "./pageQuery";
