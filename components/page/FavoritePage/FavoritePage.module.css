@@ -9,6 +9,7 @@
 .title {
   grid-column-start: 1;
   grid-column-end: 4;
+  font-weight: 700;
 }
 
 .linkContainer {
