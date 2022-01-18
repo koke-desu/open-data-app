@@ -6,6 +6,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import { useFavorite } from "../../../database/favorite";
 import TopPageLink from "../../ui/TopPageLink/TopPageLink";
+import P from "../../ui/P/P";
 
 type Props = {};
 
@@ -26,9 +27,9 @@ const DetailPage: React.VFC<Props> = ({}) => {
   return (
     <div className={style.container}>
       <div className={style.headRow}>
-        <p className={style.name}>
+        <P fontSize={48} className={style.name}>
           {city.prefecture} ー {city.name}
-        </p>
+        </P>
         <div
           onClick={() => {
             if (isFavorite) favorite.delete(cityId);
