@@ -2,11 +2,10 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useCities } from "../../../database/useCities";
 import style from "./DetailPage.module.css";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import { useFavorite } from "../../../database/favorite";
 import TopPageLink from "../../ui/TopPageLink/TopPageLink";
 import P from "../../ui/P/P";
+import FavoriteIcon from "../../ui/FavoriteIcon/FavoriteIcon";
 
 type Props = {};
 
@@ -37,11 +36,7 @@ const DetailPage: React.VFC<Props> = ({}) => {
           }}
           className={style.favoriteContainer}
         >
-          {isFavorite ? (
-            <FavoriteIcon style={{ color: "#f88" }} sx={{ fontSize: 48 }} />
-          ) : (
-            <FavoriteBorder style={{ color: "#999" }} sx={{ fontSize: 48 }} />
-          )}
+          <FavoriteIcon isFavorite={isFavorite} />
         </div>
       </div>
       <TopPageLink />
