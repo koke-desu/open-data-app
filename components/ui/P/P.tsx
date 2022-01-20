@@ -1,8 +1,9 @@
-import React, { useContext } from "react";
-import { TextSizeContext, textSizeContext } from "./textSize";
+import React from "react";
+import { useRecoilValue } from "recoil";
+import { TextSize, textSizeState } from "./textSize";
 
 // 拡大率
-const expansionRate: { [key in TextSizeContext["textSize"]]: number } = {
+const expansionRate: { [key in TextSize]: number } = {
   small: 0.7,
   base: 1.0,
   large: 1.5,
@@ -16,7 +17,7 @@ type Props = React.DetailedHTMLProps<
 > & { fontSize: number };
 
 const P: React.VFC<Props> = (props) => {
-  const textSize = useContext(textSizeContext).textSize;
+  const textSize = useRecoilValue(textSizeState);
 
   // スプレッド構文が多用されてるけど、pタグにfontSizeっていうプロパティーをつけないために、fontSizeをundefinedで上書きしてるだけ
   return (

@@ -1,16 +1,17 @@
-import React, { useContext } from "react";
-import { TextSizeContext, textSizeContext } from "../P/textSize";
+import React from "react";
+import { useRecoilState } from "recoil";
+import { TextSize, textSizeState } from "../P/textSize";
 import style from "./TextSizeSetting.module.css";
 type Props = {};
 
-const sizeList: { value: TextSizeContext["textSize"]; label: string }[] = [
+const sizeList: { value: TextSize; label: string }[] = [
   { value: "small", label: "小" },
   { value: "base", label: "中" },
   { value: "large", label: "大" },
 ];
 
 const TextSizeSetting: React.VFC<Props> = ({}) => {
-  const { textSize, setTextSize } = useContext(textSizeContext);
+  const [textSize, setTextSize] = useRecoilState(textSizeState);
 
   return (
     <div className={style.container}>
