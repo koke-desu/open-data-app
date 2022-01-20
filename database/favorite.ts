@@ -1,23 +1,12 @@
-import React, { createContext, useContext } from "react";
+import React from "react";
+import { atom, useRecoilState } from "recoil";
 import { CityType } from "./dataType";
 import { useCities } from "./useCities";
 
-// favorite（お気に入り）の処理をまとめたファイル。
-// 全体で状態の同期をとるため、contextで共有する。
-// _app.tsxに具体的なモデルについて書くの嫌だから、できたらSWRかRecoilとかで書き換えたい。
+// favorite（「いいね」した市町村）の処理をまとめたファイル。
+// ContextからRecoilに書き換えた！！
 
-type FavoriteContext = {
-  favorite: CityType[];
-  setFavorite: React.Dispatch<React.SetStateAction<CityType[]>>;
-};
-
-// contextの本体。_app.tsxでwrapしている。
-export const favoriteContext = createContext<FavoriteContext>({
-  favorite: [],
-  setFavorite: () => {},
-});
-
-// contextの初期化用の値を返す関数。_app.tsxで使う。
+// favoriteの初期化用の値を返す関数。
 export const getInitialFavorite = () => {
   if (typeof window === "undefined") return [];
 
@@ -31,9 +20,15 @@ export const getInitialFavorite = () => {
   return JSON.parse(item) as CityType[];
 };
 
-// favoriteContextの使用をhooksに切り出し。
+// atom。contextのRecoil版みたいなもの？
+const favoriteState = atom({
+  key: "favorite",
+  default: getInitialFavorite(),
+});
+
+// favoriteStateの使用をhooksに切り出し。
 export const useFavorite = () => {
-  const { favorite, setFavorite } = useContext(favoriteContext);
+  const [favorite, setFavorite] = useRecoilState(favoriteState);
   const cities = useCities().data;
 
   return {
