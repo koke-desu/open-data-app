@@ -29,14 +29,14 @@ const DetailPage: React.VFC<Props> = ({}) => {
         <P fontSize={48} className={style.name}>
           {city.prefecture} ー {city.name}
         </P>
-        <div
-          onClick={() => {
-            if (isFavorite) favorite.delete(cityId);
-            else favorite.add(cityId);
-          }}
-          className={style.favoriteContainer}
-        >
-          <FavoriteIcon isFavorite={isFavorite} />
+        <div className={style.favoriteContainer}>
+          <FavoriteIcon
+            isFavorite={isFavorite}
+            onClick={() => {
+              if (isFavorite) favorite.delete(cityId);
+              else favorite.add(cityId);
+            }}
+          />
         </div>
       </div>
       <TopPageLink />
