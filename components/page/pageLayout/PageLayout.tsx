@@ -12,9 +12,14 @@ const PageLayout: React.VFC<Props> = ({ children }) => {
   return (
     <div className={style.container}>
       <header className={style.header}>
-        <P fontSize={16}>ヘッダー</P>
+        <p className={style.header_text}>北陸まち探しサイト</p>
+        <button className={style.good_button_style}>
+          いいね一覧
+          <br />♡
+        </button>
         <TextSizeSetting />
       </header>
+
       {children}
     </div>
   );

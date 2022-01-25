@@ -18,10 +18,24 @@ const TopPage: React.VFC<Props> = ({}) => {
   if (!data) return <P fontSize={32}>loading</P>;
 
   return (
-    <div className={style.container}>
-      {queriedData.map((city) => (
-        <CityCard key={`city-list-${city.id}`} city={city} />
-      ))}
+    <div className={style.page_container}>
+      <div className={style.explain}>
+        <p>
+          なんか
+          <br />
+          イイ感じの
+          <br />
+          文章
+        </p>
+      </div>
+      <div className={style.title}>
+        <p>まちをさがす</p>
+      </div>
+      <div className={style.city_container}>
+        {queriedData.map((city) => (
+          <CityCard key={`city-list-${city.id}`} city={city} />
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,17 +1,23 @@
 .container {
   display: flex;
   flex-direction: row;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 .button {
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  border: gray 1px solid;
-  cursor: pointer;
-  aspect-ratio: 1;
+  background-color: #d3ffd3;
+  border-radius: 8px;
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+  border: 2px solid #3ac965;
+}
+
+.button:hover {
+  background: #88ddbc;
+  color: white;
 }
 
 .selected {
-  background-color: gray;
+  background-color: #88ddbc;
 }

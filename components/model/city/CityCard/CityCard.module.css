@@ -4,9 +4,15 @@
   max-width: 24rem;
   padding: 1rem;
   aspect-ratio: 16 / 9;
-  border: 2px solid gray;
+  border: 1px solid #3adf11;
   position: relative;
   text-decoration: none;
+  border-radius: 40px;
+  background: linear-gradient(to top left, #ffffff, #c7fbff, #deffd5, #ffffff);
+}
+
+.card:hover {
+  background: linear-gradient(to top left, #ffffff, #9ef9ff, #b4ffa1, #ffffff);
 }
 
 .prefecture {

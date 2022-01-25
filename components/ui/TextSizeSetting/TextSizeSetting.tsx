@@ -16,13 +16,13 @@ const TextSizeSetting: React.VFC<Props> = ({}) => {
   return (
     <div className={style.container}>
       {sizeList.map((size) => (
-        <p
+        <button
           key={`header-text-size-${size.value}`}
           className={`${style.button} ${textSize === size.value ? style.selected : ""}`}
           onClick={() => setTextSize(size.value)}
         >
           {size.label}
-        </p>
+        </button>
       ))}
     </div>
   );
