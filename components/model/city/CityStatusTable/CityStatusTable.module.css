@@ -1,0 +1,23 @@
+.table {
+  border-collapse: collapse;
+}
+
+/*表の緑の方*/
+.table_left {
+  width: 350px;
+  height: 50px;
+  background-color: #03ffc0;
+  color: #ffffff;
+  text-shadow: 1px 1px gray;
+  font-size: 20px;
+  border: solid 0.5px gray;
+}
+
+/*表の白の方*/
+.table_right {
+  width: 350px;
+  text-align: center;
+  background: #ffffff;
+  font-size: 20px;
+  border: solid 0.5px gray;
+}

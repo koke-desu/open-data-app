@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useCities } from "../../../database/useCities";
 import CityCard from "../../model/city/CityCard/CityCard";
 import P from "../../ui/P/P";
@@ -20,17 +20,17 @@ const TopPage: React.VFC<Props> = ({}) => {
   return (
     <div className={style.page_container}>
       <div className={style.explain}>
-        <p>
+        <P fontSize={16}>
           なんか
           <br />
           イイ感じの
           <br />
           文章
-        </p>
+        </P>
       </div>
-      <div className={style.title}>
-        <p>まちをさがす</p>
-      </div>
+      <h2 className={style.title}>
+        <P fontSize={18}>まちをさがす</P>
+      </h2>
       <div className={style.city_container}>
         {queriedData.map((city) => (
           <CityCard key={`city-list-${city.id}`} city={city} />

@@ -30,16 +30,18 @@
 
 /*いいね一覧ボタン*/
 .good_button_style {
-  width: 90px;
-  height: 53px;
+  width: 102px;
+  height: 56px;
+  text-align: center;
   margin-left: auto;
   border: double 4px#88ebcd;
   border-radius: 20px;
   background-color: white;
-  font-size: 13px;
+  font-size: 16px;
   overflow: hidden;
   transition: 0.6s;
 }
+
 .good_button_style:hover {
   -webkit-transform: rotateY(360deg);
   transform: rotateY(360deg);

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import P from "../../ui/P/P";
 import TextSizeSetting from "../../ui/TextSizeSetting/TextSizeSetting";
@@ -13,10 +14,12 @@ const PageLayout: React.VFC<Props> = ({ children }) => {
     <div className={style.container}>
       <header className={style.header}>
         <p className={style.header_text}>北陸まち探しサイト</p>
-        <button className={style.good_button_style}>
-          いいね一覧
-          <br />♡
-        </button>
+        <Link href="favorite">
+          <a className={style.good_button_style}>
+            いいね一覧
+            <br />♡
+          </a>
+        </Link>
         <TextSizeSetting />
       </header>
 

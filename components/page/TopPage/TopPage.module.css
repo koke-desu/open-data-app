@@ -22,10 +22,6 @@
   border: double 5px #4ed3a7;
   font-family: "Sawarabi Mincho";
 }
-.explain p {
-  margin: 0;
-  padding: 0;
-}
 
 /*「まちをさがす」青緑のライン*/
 .title {
@@ -35,7 +31,6 @@
   color: #fff;
   text-align: center;
   font-weight: bold;
-  font-size: 20px;
   letter-spacing: 5px;
   text-shadow: 1.1px 1.1px gray;
 }
