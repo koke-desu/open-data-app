@@ -39,6 +39,38 @@ const DetailPage: React.VFC<Props> = ({}) => {
           />
         </div>
       </div>
+
+      <div>
+        <table className={style.table}>
+          <tbody>
+            <tr>
+              <th className={style.table_left}>見出し</th>
+              <td className={style.table_right}>テキストが入ります</td>
+            </tr>
+            <tr>
+              <th className={style.table_left}>見出し</th>
+              <td className={style.table_right}>テキストが入ります</td>
+            </tr>
+            <tr>
+              <th className={style.table_left}>見出し</th>
+              <td className={style.table_right}>テキストが入ります</td>
+            </tr>
+            <tr>
+              <th className={style.table_left}>見出し</th>
+              <td className={style.table_right}>テキストが入ります</td>
+            </tr>
+            <tr>
+              <th className={style.table_left}>見出し</th>
+              <td className={style.table_right}>テキストが入ります</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <a href="#" className={style.btn_partial_line}>
+        <i className={style.fa_caret_right}></i> ▶〇〇市のホームページはこちら
+      </a>
+
       <TopPageLink />
     </div>
   );

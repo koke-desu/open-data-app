@@ -20,3 +20,47 @@
 .favoriteContainer {
   cursor: pointer;
 }
+
+.table {
+  border-collapse: collapse;
+}
+
+/*表の緑の方*/
+.table_left {
+  width: 350px;
+  height: 50px;
+  background-color: #03ffc0;
+  color: #ffffff;
+  text-shadow: 1px 1px gray;
+  font-size: 20px;
+  border: solid 0.5px gray;
+}
+
+/*表の白の方*/
+.table_right {
+  width: 350px;
+  text-align: center;
+  background: #ffffff;
+  font-size: 20px;
+  border: solid 0.5px gray;
+}
+
+/*リンク*/
+.btn_partial_line {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-size: 25px;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 3px #00dce4;
+  border-left: solid 3px #00dce4;
+  color: #00dce4;
+  transition: 0.4s;
+}
+.btn_partial_line:hover {
+  padding-left: 0.7em;
+  padding-right: 0.3em;
+}
