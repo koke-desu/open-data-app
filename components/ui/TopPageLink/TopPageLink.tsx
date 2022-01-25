@@ -8,7 +8,9 @@ const TopPageLink: React.VFC<Props> = ({}) => {
   return (
     <Link href="/">
       <a className={style.link}>
-        <P fontSize={18}>トップページにもどる</P>
+        <P fontSize={22} className={style.link_text}>
+          ▶トップページにもどる
+        </P>
       </a>
     </Link>
   );

@@ -1,8 +1,20 @@
+/*リンク*/
 .link {
-  color: #1a0dab;
-  padding: 0.25rem 0.5rem;
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.25em 0.5em;
+  text-decoration: none;
+  border-bottom: solid 3px #00dce4;
+  border-left: solid 3px #00dce4;
+  color: #00dce4;
+  transition: 0.4s;
+}
+.link:hover {
+  padding-left: 0.7em;
+  padding-right: 0.3em;
 }
 
-.link:hover {
-  border-bottom: 1px darkblue solid;
+.link_text {
+  margin: 0;
 }

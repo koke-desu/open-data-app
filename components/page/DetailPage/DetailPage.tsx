@@ -6,6 +6,7 @@ import { useFavorite } from "../../../database/favorite";
 import TopPageLink from "../../ui/TopPageLink/TopPageLink";
 import P from "../../ui/P/P";
 import FavoriteIcon from "../../ui/FavoriteIcon/FavoriteIcon";
+import CityStatusTable from "../../model/city/CityStatusTable/CityStatusTable";
 
 type Props = {};
 
@@ -25,11 +26,11 @@ const DetailPage: React.VFC<Props> = ({}) => {
 
   return (
     <div className={style.container}>
-      <div className={style.headRow}>
+      <div className={style.head_row}>
         <P fontSize={48} className={style.name}>
           {city.prefecture} ー {city.name}
         </P>
-        <div className={style.favoriteContainer}>
+        <div className={style.favorite_container}>
           <FavoriteIcon
             isFavorite={isFavorite}
             onClick={() => {
@@ -39,6 +40,13 @@ const DetailPage: React.VFC<Props> = ({}) => {
           />
         </div>
       </div>
+      <CityStatusTable city={city} />
+      <a href="#" className={style.city_link}>
+        <P fontSize={22} className={style.city_link_text}>
+          ▶〇〇市のホームページはこちら
+        </P>
+      </a>
+
       <TopPageLink />
     </div>
   );

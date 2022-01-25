@@ -21,3 +21,10 @@ export const cityTypeKey: (keyof CityType)[] = [
   "temperature",
   "population",
 ];
+
+// 表で表示するフィールドと、ラベルの対応を定義。
+export const cityStatusLabel: { [key in keyof Partial<CityType>]: string } = {
+  population: "人口（人）",
+  crimeRate: "犯罪率（％）",
+  temperature: "平均気温（℃）",
+};
