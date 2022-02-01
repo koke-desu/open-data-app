@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useCities } from "../../../database/useCities";
 import style from "./DetailPage.module.css";
 import { useFavorite } from "../../../database/favorite";
@@ -7,6 +7,7 @@ import TopPageLink from "../../ui/TopPageLink/TopPageLink";
 import P from "../../ui/P/P";
 import FavoriteIcon from "../../ui/FavoriteIcon/FavoriteIcon";
 import CityStatusTable from "../../model/city/CityStatusTable/CityStatusTable";
+import { CityType } from "../../../database/dataType";
 
 type Props = {};
 
@@ -15,10 +16,18 @@ const DetailPage: React.VFC<Props> = ({}) => {
   const cityId = router.query.cityId as string;
 
   const { data, error } = useCities();
-  const city = data?.find((val) => val.id === cityId);
+  const [city, setCity] = useState<CityType>();
 
   const favorite = useFavorite();
-  const isFavorite = favorite.exist(cityId);
+  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+
+  // アンマウント時のアニメーションが行われる際に、アニメーションが完了するよりも先に、routeが変更されて、
+  // cityIdがundefinedになってしまうので、city, isFavoriteがcityIdの変更に依存しないようにする。
+  useEffect(() => {
+    setCity(data?.find((val) => val.id === cityId));
+    setIsFavorite(favorite.exist(cityId));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   if (error) return <div>error</div>;
   if (!data) return <div>Loading</div>;
