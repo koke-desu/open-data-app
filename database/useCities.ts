@@ -4,7 +4,7 @@ import { CityType, importedCitiesType } from "./dataType";
 import { citiesMockData } from "./mockData";
 
 // モックデータやAPIから読み込まれたCityの型をCityTypeに整形する。
-export const formatImportedCities = (cities: importedCitiesType): CityType[] => {
+const formatImportedCities = (cities: importedCitiesType): CityType[] => {
   return cities.map((city) => ({
     ...city,
     Pop: Number.parseInt(city.Pop),
@@ -22,10 +22,20 @@ export const formatImportedCities = (cities: importedCitiesType): CityType[] => 
   }));
 };
 
+// APIからデータを獲得
+const fetchCities = () => {
+  return fetch(
+    "https://cities-groupc.azurewebsites.net/api/cities1?code=sQKzxavmttY3uVJFLXBIPEkabdsGeeaLRzc9yaaKbzZMChXqlpe6Lg=="
+  ).then((res) => {
+    return res.json() as Promise<importedCitiesType | null>;
+  });
+};
+
 // 市町村の一覧を獲得する関数。今はモックデータを返すだけ。
 const cityState = atom<CityType[]>({
   key: "cities",
   default: formatImportedCities(citiesMockData),
+  // default: fetchCities().then((data)=>!data?[]: formatImportedCities(data))
 });
 
 // 市町村の一覧を獲得するhooks。
