@@ -2,6 +2,7 @@ import React from "react";
 import { useCities } from "../../../database/useCities";
 import CityCard from "../../model/city/CityCard/CityCard";
 import P from "../../ui/P/P";
+import QueryModal from "../../ui/QueryModal/QueryModal";
 import { usePageQuery, useQueryCities } from "./pageQuery";
 import style from "./TopPage.module.css";
 type Props = {};
@@ -18,6 +19,7 @@ const TopPage: React.VFC<Props> = ({}) => {
 
   return (
     <div className={style.page_container}>
+      <QueryModal isOpen={false} />
       <div className={style.explain}>
         <P fontSize={16}>
           なんか

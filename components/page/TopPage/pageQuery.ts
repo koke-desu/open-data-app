@@ -12,7 +12,7 @@ type FilterParamsType = {
   opr: "greater" | "less" | "equal";
 };
 
-type ParamsType = { sort?: SortParamsType; filter?: FilterParamsType };
+export type ParamsType = { sort?: SortParamsType; filter?: FilterParamsType };
 
 // パラメータをRouterからparameterを獲得して、ParamsTypeに変形させるhooks
 // 関係ないパラメータは無視

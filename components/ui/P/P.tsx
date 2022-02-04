@@ -23,7 +23,7 @@ const P: React.VFC<Props> = (props) => {
   return (
     <p
       {...{ ...props, fontSize: undefined }}
-      style={{ fontSize: Math.floor(props.fontSize * expansionRate[textSize]) }}
+      style={{ fontSize: Math.floor(props.fontSize * expansionRate[textSize]), margin: 0 }}
     />
   );
 };
