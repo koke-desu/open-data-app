@@ -7,15 +7,14 @@ import style from "./TopPage.module.css";
 type Props = {};
 
 const TopPage: React.VFC<Props> = ({}) => {
-  const { data, error } = useCities();
+  const cities = useCities();
 
   const query = usePageQuery();
   console.log(query);
 
-  const queriedData = useQueryCities(data ? data : [], query);
+  const queriedData = useQueryCities(cities, query);
 
-  if (error) return <P fontSize={32}>error</P>;
-  if (!data) return <P fontSize={32}>loading</P>;
+  if (!cities) return <P fontSize={32}>loading</P>;
 
   return (
     <div className={style.page_container}>

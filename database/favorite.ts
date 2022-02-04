@@ -29,7 +29,7 @@ const favoriteState = atom({
 // favoriteStateの使用をhooksに切り出し。
 export const useFavorite = () => {
   const [favorite, setFavorite] = useRecoilState(favoriteState);
-  const cities = useCities().data;
+  const cities = useCities();
 
   return {
     get: () => favorite,

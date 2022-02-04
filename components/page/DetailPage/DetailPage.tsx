@@ -15,7 +15,7 @@ const DetailPage: React.VFC<Props> = ({}) => {
   const router = useRouter();
   const cityId = router.query.cityId as string;
 
-  const { data, error } = useCities();
+  const cities = useCities();
   const [city, setCity] = useState<CityType>();
 
   const favorite = useFavorite();
@@ -24,13 +24,12 @@ const DetailPage: React.VFC<Props> = ({}) => {
   // アンマウント時のアニメーションが行われる際に、アニメーションが完了するよりも先に、routeが変更されて、
   // cityIdがundefinedになってしまうので、city, isFavoriteがcityIdの変更に依存しないようにする。
   useEffect(() => {
-    setCity(data?.find((val) => val.id === cityId));
+    setCity(cities?.find((val) => val.id === cityId));
     setIsFavorite(favorite.exist(cityId));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  }, [cities]);
 
-  if (error) return <div>error</div>;
-  if (!data) return <div>Loading</div>;
+  if (!cities) return <div>Loading</div>;
   if (!city) return <div>invalid city id</div>;
 
   return (
