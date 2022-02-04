@@ -7,37 +7,32 @@ import TopPageLink from "../../ui/TopPageLink/TopPageLink";
 import P from "../../ui/P/P";
 import FavoriteIcon from "../../ui/FavoriteIcon/FavoriteIcon";
 import CityStatusTable from "../../model/city/CityStatusTable/CityStatusTable";
-import { CityType } from "../../../database/dataType";
 
 type Props = {};
 
 const DetailPage: React.VFC<Props> = ({}) => {
   const router = useRouter();
-  const cityId = router.query.cityId as string;
+  const [cityId, setCityId] = useState("");
+  useEffect(() => {
+    !cityId && setCityId(router.query.cityId as string);
+  }, [cityId, router.query.cityId]);
 
-  const { data, error } = useCities();
-  const [city, setCity] = useState<CityType>();
+  console.log(cityId);
+
+  const cities = useCities();
+  const city = cities.find((val) => val.id === cityId);
 
   const favorite = useFavorite();
-  const [isFavorite, setIsFavorite] = useState<boolean>(false);
+  const isFavorite = favorite.exist(cityId);
 
-  // アンマウント時のアニメーションが行われる際に、アニメーションが完了するよりも先に、routeが変更されて、
-  // cityIdがundefinedになってしまうので、city, isFavoriteがcityIdの変更に依存しないようにする。
-  useEffect(() => {
-    setCity(data?.find((val) => val.id === cityId));
-    setIsFavorite(favorite.exist(cityId));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
-
-  if (error) return <div>error</div>;
-  if (!data) return <div>Loading</div>;
+  if (!cities) return <div>Loading</div>;
   if (!city) return <div>invalid city id</div>;
 
   return (
     <div className={style.container}>
       <div className={style.head_row}>
         <P fontSize={48} className={style.name}>
-          {city.prefecture} ー {city.name}
+          {city.Pre} ー {city.Mun}
         </P>
         <div className={style.favorite_container}>
           <FavoriteIcon
@@ -50,7 +45,7 @@ const DetailPage: React.VFC<Props> = ({}) => {
         </div>
       </div>
       <CityStatusTable city={city} />
-      <a href="#" className={style.city_link}>
+      <a href={city.Url} className={style.city_link}>
         <P fontSize={22} className={style.city_link_text}>
           ▶〇〇市のホームページはこちら
         </P>

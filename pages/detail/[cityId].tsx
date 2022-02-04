@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React from "react";
 import DetailPage from "../../components/page/DetailPage/DetailPage";
 
