@@ -17,10 +17,10 @@ const CityCard: React.VFC<Props> = ({ city }) => {
     <Link href="/detail/[cityId]" as={`/detail/${city.id}`}>
       <a className={style.card}>
         <P fontSize={16} className={style.prefecture}>
-          {city.prefecture}
+          {city.Pre}
         </P>
         <P fontSize={32} className={style.name}>
-          {city.name}
+          {city.Mun}
         </P>
         <div className={style.favoriteContainer}>
           <FavoriteIcon
