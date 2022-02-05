@@ -1,0 +1,30 @@
+import { useState } from "@storybook/addons";
+import React from "react";
+import { cityStatusLabel, queryField } from "../../../database/dataType";
+import style from "./SelectField.module.css";
+
+type Props = {
+  selected?: queryField;
+  onChange: (field: queryField) => void;
+};
+
+const SelectField: React.VFC<Props> = ({ selected, onChange }) => {
+  return (
+    <select
+      required
+      className={style.select_field}
+      value={selected}
+      onChange={(event) => {
+        onChange(event.currentTarget.value as queryField);
+      }}
+    >
+      <option hidden>選択してください</option>
+      {Object.entries(cityStatusLabel).map(([field, label]) => (
+        <option value={field} key={`query-modal-sort-${field}`}>
+          {label}
+        </option>
+      ))}
+    </select>
+  );
+};
+export default SelectField;

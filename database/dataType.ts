@@ -44,7 +44,7 @@ export const cityTypeKey: (keyof CityType)[] = [
 ];
 
 // 表で表示するフィールドと、ラベルの対応を定義。
-export const cityStatusLabel: { [key in keyof Partial<CityType>]: string } = {
+export const cityStatusLabel = {
   Pop: "人口（人）",
   Temp_Jan: "1月の平均気温（℃）",
   Temp_July: "7月の平均気温（℃）",
@@ -57,4 +57,7 @@ export const cityStatusLabel: { [key in keyof Partial<CityType>]: string } = {
   Carac_rate: "人口に対する自動車人身事故件数",
   Snathe_num: "ひったくり件数",
   Snathe_rate: "人口に対するひったくり件数",
-};
+} as const;
+
+//
+export type queryField = keyof typeof cityStatusLabel | undefined;

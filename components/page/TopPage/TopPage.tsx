@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCities } from "../../../database/useCities";
 import CityCard from "../../model/city/CityCard/CityCard";
 import P from "../../ui/P/P";
@@ -15,11 +15,18 @@ const TopPage: React.VFC<Props> = ({}) => {
 
   const queriedData = useQueryCities(cities, query);
 
+  const [isOpen, setIsOpen] = useState(true);
+
   if (!cities) return <P fontSize={32}>loading</P>;
 
   return (
     <div className={style.page_container}>
-      <QueryModal isOpen={false} />
+      <QueryModal
+        isOpen={isOpen}
+        onClose={() => {
+          setIsOpen(false);
+        }}
+      />
       <div className={style.explain}>
         <P fontSize={16}>
           なんか
