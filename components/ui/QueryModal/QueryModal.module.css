@@ -32,27 +32,6 @@
   margin-top: 1rem;
 }
 
-.dir_button {
-  font-weight: bold;
-  height: 40px;
-  width: 64px;
-  color: #6f9ee6;
-  text-align: center;
-  border: 1px solid #99cbfd;
-  text-shadow: 1px 1px 1px rgba(160, 160, 160, 0.397);
-  border-radius: 5px;
-  background-color: #ffffff;
-  cursor: pointer;
-}
-
-.selected {
-  color: white;
-  text-shadow: 1px 1px 1px rgba(58, 58, 58, 0.66);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0.15);
-  border: 1px solid #4fa7ff;
-  background-image: linear-gradient(#99e2ff 0%, #98f3ff 100%);
-}
-
 .submit_button_container {
   position: absolute;
   bottom: 1rem;

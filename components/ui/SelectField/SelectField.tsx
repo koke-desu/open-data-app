@@ -13,12 +13,13 @@ const SelectField: React.VFC<Props> = ({ selected, onChange }) => {
     <select
       required
       className={style.select_field}
-      value={selected}
+      value={selected || "default"}
       onChange={(event) => {
+        if (event.currentTarget.value === "default") onChange(undefined);
         onChange(event.currentTarget.value as queryField);
       }}
     >
-      <option hidden>選択してください</option>
+      <option value="default">選択してください</option>
       {Object.entries(cityStatusLabel).map(([field, label]) => (
         <option value={field} key={`query-modal-sort-${field}`}>
           {label}
