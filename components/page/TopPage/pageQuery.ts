@@ -1,18 +1,18 @@
 import { useRouter } from "next/router";
-import { CityType, cityTypeKey } from "../../../database/dataType";
+import { CityType, cityTypeKey, queryField } from "../../../database/dataType";
 
 //
 type SortParamsType = {
-  sort: string;
+  sort: queryField;
   dir: "asc" | "desc";
 };
 type FilterParamsType = {
-  field: string;
+  field: queryField;
   value: number | string;
   opr: "greater" | "less" | "equal";
 };
 
-type ParamsType = { sort?: SortParamsType; filter?: FilterParamsType };
+export type ParamsType = { sort?: SortParamsType; filter?: FilterParamsType };
 
 // パラメータをRouterからparameterを獲得して、ParamsTypeに変形させるhooks
 // 関係ないパラメータは無視
@@ -25,7 +25,7 @@ export const usePageQuery = (): Partial<ParamsType> => {
   // sort用のフィールドがある場合、sortParamsに代入。
   if ("sort" in params && "dir" in params) {
     if (typeof params.sort === "string" && (params.dir === "asc" || params.dir === "desc")) {
-      sortParams = { sort: params.sort, dir: params.dir };
+      sortParams = { sort: params.sort as queryField, dir: params.dir };
     }
   }
 
@@ -38,7 +38,7 @@ export const usePageQuery = (): Partial<ParamsType> => {
       (params.opr === "greater" || params.opr === "less" || params.opr === "equal")
     ) {
       filterParams = {
-        field: params.field,
+        field: params.field as queryField,
         value: Number(params.value) === NaN ? params.value : Number(params.value),
         opr: params.opr,
       };
