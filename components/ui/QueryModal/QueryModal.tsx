@@ -11,7 +11,7 @@ type Props = { isOpen: boolean; onClose: () => void };
 const QueryModal: React.VFC<Props> = ({ isOpen, onClose }) => {
   const router = useRouter();
 
-  const [query, setQuery] = useState(usePageQuery());
+  const query = usePageQuery();
 
   // ネストされたObjectでのstate更新がだるすぎたから、それぞれのフィールドごとにstateを作成。
   // RHFとか入れてもいいけど、フォーム1つだけだしなんだかなぁ...
@@ -24,6 +24,7 @@ const QueryModal: React.VFC<Props> = ({ isOpen, onClose }) => {
   //
   const onSubmit = () => {
     router.push({ pathname: "/", query: { sort, dir, field, value, opr } });
+    onClose();
   };
 
   const onCancel = () => {
@@ -66,7 +67,7 @@ const QueryModal: React.VFC<Props> = ({ isOpen, onClose }) => {
           </div>
         </label>
 
-        <label>
+        <label className={style.filter_container}>
           <P fontSize={20} className={style.label}>
             絞り込み
           </P>
@@ -78,6 +79,7 @@ const QueryModal: React.VFC<Props> = ({ isOpen, onClose }) => {
           />
           <input
             type="number"
+            className={style.value_input}
             value={value}
             onChange={(event) => {
               setValue(event.currentTarget.value);

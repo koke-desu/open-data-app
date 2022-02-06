@@ -5,13 +5,13 @@ import P from "../../ui/P/P";
 import QueryModal from "../../ui/QueryModal/QueryModal";
 import { usePageQuery, useQueryCities } from "./pageQuery";
 import style from "./TopPage.module.css";
+import CheckIcon from "@mui/icons-material/Check";
 type Props = {};
 
 const TopPage: React.VFC<Props> = ({}) => {
   const cities = useCities();
 
   const query = usePageQuery();
-  console.log(query);
 
   const queriedData = useQueryCities(cities, query);
 
@@ -39,6 +39,21 @@ const TopPage: React.VFC<Props> = ({}) => {
       <h2 className={style.title}>
         <P fontSize={18}>まちをさがす</P>
       </h2>
+
+      <button
+        className={style.open_modal_button}
+        onClick={() => {
+          setIsOpen(true);
+        }}
+      >
+        {query.filter || query.sort ? (
+          <CheckIcon style={{ color: "#fff" }} sx={{ fontSize: 32 }} />
+        ) : (
+          ""
+        )}
+        <P fontSize={18}>フィルター</P>
+      </button>
+
       <div className={style.city_container}>
         {queriedData.map((city) => (
           <CityCard key={`city-list-${city.id}`} city={city} />

@@ -38,3 +38,18 @@
   margin: 0;
   padding: 0;
 }
+
+.open_modal_button {
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 2rem;
+  margin-left: auto;
+  margin-right: 2rem;
+  background-color: #99cbfd;
+  color: white;
+  outline: none;
+  border: 1px solid #4fa7ff;
+}
