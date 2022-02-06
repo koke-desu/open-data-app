@@ -4,7 +4,7 @@ import { CityType, importedCitiesType } from "./dataType";
 import { citiesMockData } from "./mockData";
 
 // モックデータやAPIから読み込まれたCityの型をCityTypeに整形する。
-const formatImportedCities = (cities: importedCitiesType): CityType[] => {
+export const formatImportedCities = (cities: importedCitiesType): CityType[] => {
   return cities.map((city) => ({
     ...city,
     Pop: Number.parseInt(city.Pop),

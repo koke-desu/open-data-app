@@ -15,7 +15,7 @@ const TopPage: React.VFC<Props> = ({}) => {
 
   const queriedData = useQueryCities(cities, query);
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   if (!cities) return <P fontSize={32}>loading</P>;
 
