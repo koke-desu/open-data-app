@@ -13,7 +13,9 @@ const PageLayout: React.VFC<Props> = ({ children }) => {
   return (
     <div className={style.container}>
       <header className={style.header}>
-        <p className={style.header_text}>北陸まち探しサイト</p>
+        <Link href="/">
+          <a className={style.header_text}>北陸まち探しサイト</a>
+        </Link>
         <Link href="/favorite">
           <a className={style.good_button_style}>
             いいね一覧
