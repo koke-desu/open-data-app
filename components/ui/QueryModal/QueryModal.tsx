@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
 import P from "../P/P";
 import style from "./QueryModal.module.css";
 import { usePageQuery } from "../../page/TopPage/pageQuery";
@@ -37,81 +38,83 @@ const QueryModal: React.VFC<Props> = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal open={isOpen} onClose={onClose}>
-      <div className={style.modal_contents}>
-        <label>
-          <P fontSize={20} className={style.label}>
-            並べ替え
-          </P>
-          <SelectField
-            selected={sort}
-            onChange={(value) => {
-              setSort(value);
-            }}
-          />
-          <div className={style.dir_button_container}>
-            <DirectionButton
-              selected={dir === "asc"}
-              label="昇順"
-              onClick={() => {
-                setDir("asc");
+    <Modal open={isOpen} onClose={onClose} closeAfterTransition>
+      <Fade in={isOpen}>
+        <div className={style.modal_contents}>
+          <label>
+            <P fontSize={20} className={style.label}>
+              並べ替え
+            </P>
+            <SelectField
+              selected={sort}
+              onChange={(value) => {
+                setSort(value);
               }}
             />
-            <DirectionButton
-              selected={dir === "desc"}
-              label="降順"
-              onClick={() => {
-                setDir("desc");
-              }}
-            />
-          </div>
-        </label>
+            <div className={style.dir_button_container}>
+              <DirectionButton
+                selected={dir === "asc"}
+                label="昇順"
+                onClick={() => {
+                  setDir("asc");
+                }}
+              />
+              <DirectionButton
+                selected={dir === "desc"}
+                label="降順"
+                onClick={() => {
+                  setDir("desc");
+                }}
+              />
+            </div>
+          </label>
 
-        <label className={style.filter_container}>
-          <P fontSize={20} className={style.label}>
-            絞り込み
-          </P>
-          <SelectField
-            selected={field}
-            onChange={(value) => {
-              setField(value);
-            }}
-          />
-          <input
-            type="number"
-            className={style.value_input}
-            value={value}
-            onChange={(event) => {
-              setValue(event.currentTarget.value);
-            }}
-          />
-          <div className={style.dir_button_container}>
-            <DirectionButton
-              selected={opr === "greater"}
-              label="以上"
-              onClick={() => {
-                setOpr("greater");
+          <label className={style.filter_container}>
+            <P fontSize={20} className={style.label}>
+              絞り込み
+            </P>
+            <SelectField
+              selected={field}
+              onChange={(value) => {
+                setField(value);
               }}
             />
-            <DirectionButton
-              selected={opr === "less"}
-              label="以下"
-              onClick={() => {
-                setOpr("less");
+            <input
+              type="number"
+              className={style.value_input}
+              value={value}
+              onChange={(event) => {
+                setValue(event.currentTarget.value);
               }}
             />
-          </div>
-        </label>
+            <div className={style.dir_button_container}>
+              <DirectionButton
+                selected={opr === "greater"}
+                label="以上"
+                onClick={() => {
+                  setOpr("greater");
+                }}
+              />
+              <DirectionButton
+                selected={opr === "less"}
+                label="以下"
+                onClick={() => {
+                  setOpr("less");
+                }}
+              />
+            </div>
+          </label>
 
-        <div className={style.submit_button_container}>
-          <button className={style.cancel_button} onClick={onCancel}>
-            <P fontSize={18}>キャンセル</P>
-          </button>
-          <button className={style.submit_button} onClick={onSubmit}>
-            <P fontSize={18}>決定</P>
-          </button>
+          <div className={style.submit_button_container}>
+            <button className={style.cancel_button} onClick={onCancel}>
+              <P fontSize={18}>キャンセル</P>
+            </button>
+            <button className={style.submit_button} onClick={onSubmit}>
+              <P fontSize={18}>決定</P>
+            </button>
+          </div>
         </div>
-      </div>
+      </Fade>
     </Modal>
   );
 };
