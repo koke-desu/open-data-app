@@ -28,12 +28,13 @@ const TopPage: React.VFC<Props> = ({}) => {
         }}
       />
       <div className={style.explain}>
-        <P fontSize={16}>
-          なんか
+        <P fontSize={20}>
+          北陸への居住をお考えをみなさん、より自分に合った住みやすい街を探してみませんか？
           <br />
-          イイ感じの
+          当サイトでは普通の住まい捜しサイトにはないような条件で絞り込み・並べ替えをすることができます！
           <br />
-          文章
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
+          Let's enjoy 北陸ライフ
         </P>
       </div>
       <h2 className={style.title}>
