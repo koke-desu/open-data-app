@@ -28,13 +28,12 @@ const QueryModal: React.VFC<Props> = ({ isOpen, onClose }) => {
     onClose();
   };
 
-  const onCancel = () => {
+  const onReset = () => {
     setSort(query.sort?.sort);
     setDir(query.sort?.dir);
     setField(query.filter?.field);
     setValue(query.filter?.value || 0);
     setOpr(query.filter?.opr);
-    onClose();
   };
 
   return (
@@ -106,8 +105,8 @@ const QueryModal: React.VFC<Props> = ({ isOpen, onClose }) => {
           </label>
 
           <div className={style.submit_button_container}>
-            <button className={style.cancel_button} onClick={onCancel}>
-              <P fontSize={18}>キャンセル</P>
+            <button className={style.reset_button} onClick={onReset}>
+              <P fontSize={18}>リセット</P>
             </button>
             <button className={style.submit_button} onClick={onSubmit}>
               <P fontSize={18}>決定</P>
