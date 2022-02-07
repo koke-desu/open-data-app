@@ -75,8 +75,8 @@ export const useQueryCities = (data: CityType[], query: ParamsType): CityType[] 
       result = result.filter((city) => city[key] === query.filter?.value);
     if (query.filter.opr === "greater" && typeof query.filter?.value === "number")
       result = result.filter((city) => city[key] >= (query.filter?.value as number));
-    if (query.filter.opr === "equal" && typeof query.filter?.value === "number")
-      result = result.filter((city) => city[key] >= (query.filter?.value as number));
+    if (query.filter.opr === "less" && typeof query.filter?.value === "number")
+      result = result.filter((city) => city[key] <= (query.filter?.value as number));
   }
 
   return result;
