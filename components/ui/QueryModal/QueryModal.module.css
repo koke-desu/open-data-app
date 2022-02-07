@@ -51,7 +51,7 @@
   gap: 2rem;
 }
 
-.cancel_button {
+.reset_button {
   padding: 0.5rem 1rem;
   background-color: white;
   color: dimgray;
@@ -60,7 +60,7 @@
   border-radius: 1rem;
   transition-duration: 0.5s;
 }
-.cancel_button:hover {
+.reset_button:hover {
   background-color: rgb(172, 172, 172);
 }
 

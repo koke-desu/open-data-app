@@ -1,14 +1,15 @@
 .card {
   display: inline-block;
   width: 100%;
-  max-width: 24rem;
-  padding: 1rem;
+  max-width: 28rem;
+  padding: 1.5rem;
   aspect-ratio: 16 / 9;
   border: 1px solid #3adf11;
   position: relative;
   text-decoration: none;
   border-radius: 40px;
   background: linear-gradient(to top left, #ffffff, #c7fbff, #deffd5, #ffffff);
+  box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .card:hover {
@@ -18,8 +19,8 @@
 .prefecture {
   position: absolute;
   color: gray;
-  top: 8px;
-  right: 8px;
+  top: 1rem;
+  right: 1rem;
 }
 
 .name {

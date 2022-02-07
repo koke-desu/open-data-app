@@ -15,7 +15,10 @@ const SelectField: React.VFC<Props> = ({ selected, onChange }) => {
       className={style.select_field}
       value={selected || "default"}
       onChange={(event) => {
-        if (event.currentTarget.value === "default") onChange(undefined);
+        if (event.currentTarget.value === "default") {
+          onChange(undefined);
+          return;
+        }
         onChange(event.currentTarget.value as queryField);
       }}
     >

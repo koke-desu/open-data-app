@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { useCities } from "../../../database/useCities";
 import CityCard from "../../model/city/CityCard/CityCard";
+import FilterButton from "../../ui/FilterButton/FilterButton";
 import P from "../../ui/P/P";
 import QueryModal from "../../ui/QueryModal/QueryModal";
 import { usePageQuery, useQueryCities } from "./pageQuery";
 import style from "./TopPage.module.css";
-import CheckIcon from "@mui/icons-material/Check";
+
 type Props = {};
 
 const TopPage: React.VFC<Props> = ({}) => {
@@ -15,7 +16,7 @@ const TopPage: React.VFC<Props> = ({}) => {
 
   const queriedData = useQueryCities(cities, query);
 
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   if (!cities) return <P fontSize={32}>loading</P>;
 
@@ -28,31 +29,25 @@ const TopPage: React.VFC<Props> = ({}) => {
         }}
       />
       <div className={style.explain}>
-        <P fontSize={16}>
-          なんか
+        <P fontSize={20}>
+          北陸への居住をお考えをみなさん、より自分に合った住みやすい街を探してみませんか？
           <br />
-          イイ感じの
+          当サイトでは普通の住まい捜しサイトにはないような条件で絞り込み・並べ替えをすることができます！
           <br />
-          文章
+          {/* eslint-disable-next-line react/no-unescaped-entities */}
+          Let's enjoy 北陸ライフ
         </P>
       </div>
       <h2 className={style.title}>
         <P fontSize={18}>まちをさがす</P>
       </h2>
 
-      <button
-        className={style.open_modal_button}
+      <FilterButton
         onClick={() => {
           setIsOpen(true);
         }}
-      >
-        {query.filter || query.sort ? (
-          <CheckIcon style={{ color: "#fff" }} sx={{ fontSize: 32 }} />
-        ) : (
-          ""
-        )}
-        <P fontSize={18}>フィルター</P>
-      </button>
+        isQueried={!!(query.filter || query.sort)}
+      />
 
       <div className={style.city_container}>
         {queriedData.map((city) => (
