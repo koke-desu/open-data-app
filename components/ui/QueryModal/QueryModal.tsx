@@ -29,11 +29,11 @@ const QueryModal: React.VFC<Props> = ({ isOpen, onClose }) => {
   };
 
   const onReset = () => {
-    setSort(query.sort?.sort);
-    setDir(query.sort?.dir);
-    setField(query.filter?.field);
-    setValue(query.filter?.value || 0);
-    setOpr(query.filter?.opr);
+    setSort(undefined);
+    setDir(undefined);
+    setField(undefined);
+    setValue(undefined);
+    setOpr(undefined);
   };
 
   return (
