@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem 2rem;
+}
+
+.query_text {
+  color: #00dce4;
+}
+
+.open_modal_button {
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 2rem;
+  margin-left: auto;
+  margin-right: 4rem;
+  background-color: #40e0d0;
+  color: white;
+  font-weight: bold;
+  outline: none;
+  border: 1px solid #4fa7ff;
+  cursor: pointer;
+}
