@@ -5,7 +5,7 @@ import { citiesMockData } from "./mockData";
 
 // モックデータやAPIから読み込まれたCityの型をCityTypeに整形する。
 export const formatImportedCities = (cities: importedCitiesType): CityType[] => {
-  return cities.map((city) => ({
+  let data = cities.map((city) => ({
     ...city,
     Pop: Number.parseInt(city.Pop),
     Temp_Jan:
@@ -16,7 +16,7 @@ export const formatImportedCities = (cities: importedCitiesType): CityType[] => 
         : 0,
     Snow_Jan:
       city.Snow_Jan && Number.parseInt(city.Snow_Jan) != NaN
-        ? Number.parseFloat(
+        ? Number.parseInt(
             typeof city.Snow_Jan === "string" ? city.Snow_Jan.split("cm")[0] : city.Snow_Jan
           )
         : 0,
@@ -61,6 +61,11 @@ export const formatImportedCities = (cities: importedCitiesType): CityType[] => 
           )
         : 0,
   }));
+
+  // NaNが大量に出たため応急処置。本当はもっときれいに処理まとめたいけど、時間内から無理やり...
+  return data.map((city) =>
+    Object.fromEntries(Object.entries(city).map(([key, value]) => [key, !value ? 0 : value]))
+  ) as CityType[];
 };
 
 // APIからデータを獲得
